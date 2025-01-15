@@ -63,6 +63,27 @@
             height: 100%;
             pointer-events: none;
         }
+
+        .message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            border: 2px solid #ff007f;
+            border-radius: 10px;
+            padding: 20px;
+            color: white;
+            font-size: 1.5em;
+            display: none;
+            z-index: 1000;
+            text-align: center;
+        }
+
+        .message img {
+            width: 100px;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -71,11 +92,20 @@
         <button class="button" onclick="displayMessage()">Celebrate</button>
     </div>
 
+    <div class="message" id="messageBox">
+        <p>Wishing you a joyous and prosperous New Year 2082!</p>
+        <img src="https://i.imgur.com/7ZbQ9bA.png" alt="Diyo Bati">
+    </div>
+
     <canvas class="fireworks"></canvas>
 
     <script>
         function displayMessage() {
-            alert('Wishing you a joyous and prosperous New Year 2082!');
+            const messageBox = document.getElementById('messageBox');
+            messageBox.style.display = 'block';
+            setTimeout(() => {
+                messageBox.style.display = 'none';
+            }, 5000);
         }
 
         const canvas = document.querySelector('.fireworks');
